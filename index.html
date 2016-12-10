@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Aquaponic System Control</title>
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/animate.css">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+</head> 
+<body>
+	<div id="header" class="center-content clear-fix">
+		<h1>Aquaponic System Control</h1>
+		<div class="biopic">
+			<img src="images/pyunsin.png" alt="pyunsin" width="160" height="160">		
+		</div>
+	</div>
+	<div class="intro">
+	<h2 class="animated bounceInLeft">What is Aquaponics?</h2>
+	<span class="intro-content">
+		Floating aquaponics systems on polycultural fish ponds were installed in China in more recent years on a large scale growing rice, wheat and canna lily and other crops, with some installations exceeding 2.5 acres (10,000 m2).
+		Diagram of the University of the Virgin Islands commercial aquaponics system designed to yield 5 metric tons of Tilapia per year.
+		The development of modern aquaponics is often attributed to the various works of the New Alchemy Institute and the works of Dr. Mark McMurtry et al. at the North Carolina State University. Inspired by the successes of the New Alchemy Institute, and the reciprocating aquaponics techniques developed by Dr. Mark McMurtry et al., other institutes soon followed suit. Starting in 1997, Dr. James Rakocy and his colleagues at the University of the Virgin Islands researched and developed the use of deep water culture hydroponic grow beds in a large-scale aquaponics system.
+		The first aquaponics research in Canada was a small system added onto existing aquaculture research at a research station in Lethbridge, Alberta. Canada saw a rise in aquaponics setups throughout the ’90s, predominantly as commercial installations raising high-value crops such as trout and lettuce. A setup based on the deep water system developed at the University of Virgin Islands was built in a greenhouse at Brooks, Alberta where Dr. Nick Savidov and colleagues researched aquaponics from a background of plant science. The team made findings on rapid root growth in aquaponics systems and on closing the solid-waste loop, and found that owing to certain advantages in the system over traditional aquaculture, the system can run well at a low pH level, which is favoured by plants but not fish.
+		<a href="https://en.wikipedia.org/wiki/Aquaponics">Source: Wikipedia</a>
+	</span>
+	<span class="aqua-pic animated fadeIn">
+		<a href="http://aquaponicsplan.com/wp-content/uploads/2013/05/aquaponics-system-design-free-31.png">
+			<img src="http://aquaponicsplan.com/wp-content/uploads/2013/05/aquaponics-system-design-free-31.png" alt="Aquaponics" width="910" height="590">
+		</a>
+	</span>
+		
+	
+		
+	</div>
+	
+	<div class="controls">
+		<h3 class="animated bounceInRight">Motor Controls</h3>
+		<button type="button" class="controlButton animated bounceInRight" id="clickON">ON</button>
+		<button type="button" class="controlButton animated bounceInRight" id="clickOFF">OFF</button><br>
+	</div>
+
+	
+
+
+	<audio autoplay loop> 
+		<source src="media/fur_elise.mp3" type="audio/mpeg">
+		Your browser does not support the audio element
+	</audio>
+
+
+
+
+	<!-- JS code -->
+	<script src="js/JQuery.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('#clickON').click(function(){
+				var a = new XMLHttpRequest();
+				a.open("GET","pinon.php");
+				a.onreadystatechange=function(){
+					if(a.readyState==4){
+						if(a.status == 200){
+						}
+						else alert("You need to upload some code to the /www folder of Raspberry Pi");
+					}
+				}
+				a.send();
+			});
+
+			$('#clickOFF').click(function(){
+				var a = new XMLHttpRequest();
+				a.open("GET","pinoff.php");
+				a.onreadystatechange=function(){
+					if(a.readyState==4){
+						if(a.status == 200){
+						}
+						else alert("HTTP ERROR")
+					}
+				}
+				a.send();
+			});
+		});
+	</script>
+
+
+
+
+</body>
+</html>
+
+
